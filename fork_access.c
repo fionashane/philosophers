@@ -31,7 +31,7 @@ int	take_right_fork(t_philo *philo)
 	if (philo_died(philo) || get_philo_state(philo) == DEAD)
 		return (1);
 	pthread_mutex_lock(philo->right_fork);
-	print_message(philo->data, philo->id, TAKE_FORKS);
+	print_message(philo->data, philo->id, "has taken a fork");
 	return (0);
 }
 
@@ -40,7 +40,7 @@ int	take_left_fork(t_philo *philo)
 	if (philo_died(philo) || get_philo_state(philo) == DEAD)
 		return (1);
 	pthread_mutex_lock(philo->left_fork);
-	print_message(philo->data, philo->id, TAKE_FORKS);
+	print_message(philo->data, philo->id, "has taken a fork");
 	return (0);
 }
 

@@ -75,7 +75,7 @@ void	*check_all_alive_routine(void *data_p)
 	{
 		if (philo_died(&philos[i]) && get_keep_iterating(data))
 		{
-			print_message(data, philos[i].id, DIED);
+			print_message(data, philos[i].id, "died");
 			set_keep_iterating(data, false);
 			notify_all_philos(data);
 			break ;

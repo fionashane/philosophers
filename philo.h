@@ -6,7 +6,7 @@
 /*   By: fsalimba <fsalimba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 14:02:57 by fsalimba          #+#    #+#             */
-/*   Updated: 2023/12/18 14:05:57 by fsalimba         ###   ########.fr       */
+/*   Updated: 2023/12/19 10:51:44 by fsalimba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,14 @@
 # include <stdint.h>
 # include <stdbool.h>
 
-# define WRONG_INPUT 1
-# define MALLOC_ERROR 2
-
-# define TAKE_FORKS "has taken a fork"
-# define EAT "is eating"
-# define SLEEP "is sleeping"
-# define THINK "is thinking"
-# define DIED "died"
-
 typedef enum e_philo_state
 {
-	EATING = 0,
-	SLEEPING = 1,
-	THINKING = 2,
-	DEAD = 3,
-	FULL = 4,
-	IDLE = 5
+	IDLE = 0,
+	DEAD = 1,
+	EATING = 2,
+	SLEEPING = 3,
+	THINKING = 4,
+	FULL = 5
 }	t_state;
 
 struct	s_data;
@@ -113,7 +104,7 @@ int			handle_one_philo(t_philo *philo);
 bool		philo_died(t_philo *philo);
 
 // printing_engine.c
-void		print_message(t_data *data, int id, char *msg);
+void		print_message(t_data *data, int id, char *message);
 int			print_error(char *error_message);
 
 // time_access.c
