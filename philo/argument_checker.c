@@ -49,13 +49,13 @@ int	check_input_range(int ac, char **av)
 
 	i = 1;
 	if (ac == 6 && ft_atoi(av[5]) <= 0)
-		return (print_error("Rule: Eating times > 0\n"));
-	if (ft_atoi(av[i]) < 1 || ft_atoi(av[i]) > 300)
-		return (print_error("Rule: 1 >= Number of philosophers <= 300\n"));
+		return (print_error("Rule: number_of_times_each_philo_must_eat > 0\n"));
+	if (ft_atoi(av[i]) < 1 || ft_atoi(av[i]) > 200)
+		return (print_error("Rule: 1 >= number_of_philosophers <= 200\n"));
 	while (++i < 5)
 	{
-		if (ft_atoi(av[i]) < 50)
-			return (print_error("Rule: Time to do something >= 50\n"));
+		if (ft_atoi(av[i]) < 60)
+			return (print_error("Rule: time_to_do_something >= 60\n"));
 	}
 	return (0);
 }

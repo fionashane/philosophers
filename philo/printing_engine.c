@@ -25,6 +25,6 @@ void	print_message(t_data *data, int id, char *message)
 
 int	print_error(char *error_message)
 {
-	printf(error_message);
+	printf("%s\n", error_message);
 	return (1);
 }

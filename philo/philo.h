@@ -32,28 +32,14 @@ typedef enum e_philo_state
 	FULL = 5
 }	t_state;
 
-struct	s_data;
-
-typedef struct s_philo
-{
-	int				id;
-	int				total_meals_eaten;
-	t_state			state;
-	uint64_t		last_eat_time;
-	struct s_data	*data;
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*right_fork;
-	pthread_mutex_t	mutex_state;
-	pthread_mutex_t	mutex_total_meals_eaten;
-	pthread_mutex_t	mutex_last_eat_time;
-}t_philo;
+struct	s_philo;
 
 typedef struct s_data
 {
 	int				nbr_philos;
 	int				nbr_meals_until_full;
 	bool			keep_iterating;
-	t_philo			*philos;
+	struct s_philo	*philos;
 	uint64_t		die_time;
 	uint64_t		eat_time;
 	uint64_t		sleep_time;
@@ -69,7 +55,21 @@ typedef struct s_data
 	pthread_mutex_t	mutex_die_time;
 	pthread_mutex_t	mutex_eat_time;
 	pthread_mutex_t	mutex_sleep_time;
-}t_data;
+}	t_data;
+
+typedef struct s_philo
+{
+	int				id;
+	int				total_meals_eaten;
+	t_state			state;
+	uint64_t		last_eat_time;
+	t_data			*data;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	mutex_state;
+	pthread_mutex_t	mutex_total_meals_eaten;
+	pthread_mutex_t	mutex_last_eat_time;
+}	t_philo;
 
 // system_manager.c
 int			run_philo(int argc, char **argv);
